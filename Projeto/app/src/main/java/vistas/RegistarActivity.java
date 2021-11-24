@@ -38,6 +38,11 @@ public class RegistarActivity extends AppCompatActivity {
             etPassword.setError("Password Inválida");
             return;
         }
+        if(!isNomeValido(nome))
+        {
+            etNome.setError("Nome não preencido");
+            return;
+        }
 
 
 
@@ -55,6 +60,13 @@ public class RegistarActivity extends AppCompatActivity {
             return false;
         return password.length() >= 6;
     }
+
+    private boolean isNomeValido(String nome) {
+        if (nome == null)
+            return false;
+        return  true;
+    }
+
 
 
 }

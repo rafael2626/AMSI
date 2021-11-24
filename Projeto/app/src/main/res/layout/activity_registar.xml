@@ -28,13 +28,6 @@
         android:hint="Introduza o seu Nome"
         android:inputType="text" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="0">
-
-    </Space>
-
 
     <EditText
         android:id="@+id/etEmail"
@@ -44,11 +37,6 @@
         android:hint="Introduza o seu Email"
         android:inputType="textEmailAddress" />
 
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="0" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -66,7 +54,7 @@
     <Button
         android:id="@+id/bt_login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="62dp"
         android:onClick="onClickregisto"
         android:text="Registar" />
 </LinearLayout>
