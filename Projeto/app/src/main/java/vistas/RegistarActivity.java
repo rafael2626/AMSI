@@ -40,7 +40,7 @@ public class RegistarActivity extends AppCompatActivity {
         }
         if(!isNomeValido(nome))
         {
-            etNome.setError("Nome não preencido");
+            etNome.setError("Nome não preenchido");
             return;
         }
 

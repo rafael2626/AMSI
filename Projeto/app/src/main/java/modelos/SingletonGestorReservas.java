@@ -10,7 +10,7 @@ public class SingletonGestorReservas
 {
     private static SingletonGestorReservas instance = null;
     private ArrayList<Reserva> reservas;
-    private  RerservaBDHelper reservaBD=null;
+    private  RerservaBDHelper reservaBD = null;
     public static synchronized SingletonGestorReservas getInstance(Context context) {
         if (instance == null)
             instance = new SingletonGestorReservas(context);
@@ -20,6 +20,8 @@ public class SingletonGestorReservas
     public SingletonGestorReservas(Context context) {
         //gerarDadosDinamicos();
         reservas = new ArrayList<>();
+
+
         reservaBD = new RerservaBDHelper(context);
     }
 
