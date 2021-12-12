@@ -62,18 +62,18 @@ public class ListaReservaAdaptador extends BaseAdapter {
 
     private class ViewHolderLista {
         private TextView tvPessoas, tvAndar;
-        private CheckBox suite , mini_bar;
+        private CheckBox cbsuite , cbmini_bar;
 
         public ViewHolderLista(View view) {
-            tvPessoas=view.findViewById(R.id.tv);
-            tvSerie=view.findViewById(R.id.tvserie);
-            tvAutor=view.findViewById(R.id.tvautor);
-            tvAno=view.findViewById(R.id.tvano);
-            imgCapa=view.findViewById(R.id.imgCapa);
+            tvPessoas=view.findViewById(R.id.etPessoas);
+            tvAndar=view.findViewById(R.id.etAndar);
+            cbmini_bar=view.findViewById(R.id.cb_Mini_bar);
+            cbsuite=view.findViewById(R.id.cb_Suite);
+
         }
 
-        public void update(Livro livro) {
-            tvTitulo.setText(livro.getTitulo());
+        public void update(Reserva reserva) {
+            tvPessoas.setText(reserva.getTitulo());
             tvSerie.setText(livro.getSerie());
             tvAutor.setText(livro.getAutor());
             tvAno.setText(livro.getAno()+"");

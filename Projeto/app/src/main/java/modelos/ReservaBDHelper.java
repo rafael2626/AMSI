@@ -68,7 +68,7 @@ public class ReservaBDHelper extends SQLiteOpenHelper {
 
 
         //update devolve o numero de linhas atualizadas
-        int nlinhas = this.db.update(TABLE_RESERVAS, values, ID + "=?", new String[]{l.getId() + ""});
+        int nlinhas = this.db.update(TABLE_RESERVAS, values, ID + "=?", new String[]{r.getId() + ""});
 
         return (nlinhas > 0);
     }
@@ -85,15 +85,15 @@ public class ReservaBDHelper extends SQLiteOpenHelper {
         this.db.delete(TABLE_RESERVAS, null, null);
     }
 
-
+\
     public ArrayList<Reserva> getAllReservaDB(){
 
-        ArrayList<Reserva> Reservas = new ArrayList<>();
+        ArrayList<Reserva> reservas = new ArrayList<>();
         Cursor cursor = this.db.query(TABLE_RESERVAS, new String[]{ID,ANDAR,PESSOAS,SUITE,MINI_BAR,},null,null,null,null,null);
 
         if(cursor.moveToFirst()){
             do {
-                Reserva r = new Reserva(cursor.getInt(0),cursor.getInt(1),cursor.getExtras().getBoolean(MINI_BAR,true), cursor.getString(3),cursor.getString(4),cursor.getString(5));
+                Reserva r = new Reserva(cursor.getInt(0),cursor.getInt(1),cursor.getInt(1) >0, cursor.getInt(1)>0 );
                 reservas.add(r);
             }while (cursor.moveToNext());
         }

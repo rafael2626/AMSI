@@ -25,7 +25,6 @@ import java.util.ArrayList;
 
 import adaptadores.ListaReservaAdaptador;
 import modelos.Reserva;
-
 import modelos.SingletonGestorReservas;
 
 
@@ -51,7 +50,7 @@ public class ListaReservasFragment extends Fragment {
         lvlistaReservas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), DetalhesLivroActivity.class);
+                Intent intent = new Intent(getContext(), DetalhesReservaActivity.class);
                 intent.putExtra("ID_RESERVA", (int) id);
                 //startActivity(intent);
                 startActivityForResult(intent,REQCODE_EDIT);
@@ -62,7 +61,7 @@ public class ListaReservasFragment extends Fragment {
         fabadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), DetalhesLivroActivity.class);
+                Intent intent = new Intent(getContext(), DetalhesReservaActivity.class);
                 //startActivity(intent);
                 startActivityForResult(intent,REQCODE_ADD);
             }
@@ -81,13 +80,13 @@ public class ListaReservasFragment extends Fragment {
 
                 switch  (data.getIntExtra("OPERACAO", 0))
                 {
-                    case DetalhesLivroActivity.ADD:
+                    case DetalhesReservaActivity.ADD:
                         Toast.makeText(getContext(),"Livro adicionado com sucesso",Toast.LENGTH_LONG);
                         break;
-                    case DetalhesLivroActivity.EDIT:
+                    case DetalhesReservaActivity.EDIT:
                         Toast.makeText(getContext(),"Livro editado com sucesso",Toast.LENGTH_LONG);
                         break;
-                    case DetalhesLivroActivity.DEL:
+                    case DetalhesReservaActivity.DEL:
                         Toast.makeText(getContext(),"Livro eliminado com sucesso",Toast.LENGTH_LONG);
                         break;
                 }

@@ -64,7 +64,7 @@ public class RegistarActivity extends AppCompatActivity {
     private boolean isNomeValido(String nome) {
         if (nome == null)
             return false;
-        return  true;
+        return  nome.length() >=4;
     }
 
 
