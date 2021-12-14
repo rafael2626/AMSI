@@ -2,6 +2,7 @@ package vistas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -68,5 +69,12 @@ public class RegistarActivity extends AppCompatActivity {
     }
 
 
+    public void onValidateLogin(String token, String email, Context context) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.putExtra("EMAIL", email);
+
+        startActivity(intent);
+        finish();
+    }
 
 }

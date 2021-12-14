@@ -4,11 +4,10 @@ public class Reserva {
 
     private int id , andar , pessoas;
     private  boolean mini_bar , suite;
-    private  static int autoIncrementId=1;
 
 
     public Reserva( int andar, int pessoas, boolean mini_bar, boolean suite) {
-        this.id = autoIncrementId++;
+
         this.andar = andar;
         this.pessoas = pessoas;
         this.mini_bar = mini_bar;

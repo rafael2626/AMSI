@@ -13,9 +13,6 @@
             android:name="vistas.LoginActivity"
             android:exported="false" />
         <activity
-            android:name="vistas.Reservas_activity"
-            android:exported="false" />
-        <activity
             android:name="vistas.nav_header_main"
             android:exported="false" />
         <activity

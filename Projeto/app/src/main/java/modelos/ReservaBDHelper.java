@@ -85,7 +85,7 @@ public class ReservaBDHelper extends SQLiteOpenHelper {
         this.db.delete(TABLE_RESERVAS, null, null);
     }
 
-\
+
     public ArrayList<Reserva> getAllReservaDB(){
 
         ArrayList<Reserva> reservas = new ArrayList<>();

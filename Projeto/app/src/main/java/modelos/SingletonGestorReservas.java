@@ -23,12 +23,6 @@ public class SingletonGestorReservas
     private LoginListener loginListener;*/
 
 
-    public SingletonGestorReservas(Context  context) {
-
-        reservas = new ArrayList<>();
-
-        reservasBD = new ReservaBDHelper(context);
-    }
 
     public static synchronized SingletonGestorReservas getInstance(Context context) {
         if (instance == null)
@@ -39,7 +33,9 @@ public class SingletonGestorReservas
     }
 
     public SingletonGestorReservas(Context context) {
-        //gerarDadosDinamicos();
+
+
+
         reservas = new ArrayList<>();
 
 
@@ -102,30 +98,27 @@ public class SingletonGestorReservas
 
 
     public void editarLivroBD(Reserva r) {
-        Reserva reservaAux = getReservasBD(r.getId());
+        Reserva reservaAux = getReserva(r.getId());
         if (reservaAux != null) {
             reservaAux.setAndar(r.getAndar());
             reservaAux.setMini_bar(r.getMini_Bar());
 
         }
     }
-    public void adicionarLivrosBD(ArrayList<Livro> livros) {
-        // Apagar todos os livros da BD
-        reservasBD.re();
+    public void adicionarLivrosBD(ArrayList<Reserva> reservas) {
+        reservasBD.removerAllReservas();
 
-        // Adicionar novos livros
-        for (Livro l : livros) {
-            livrosBD.adicionarLivroBD(l);
+        for (Reserva r : reservas) {
+            reservasBD.adicionarReservaDB(r);
         }
     }
 
     public void removerLivroBD(int id) {
-        Reserva reservaAux = getLivrosBD(id);
-        if (livroAux != null) {
-            livros.remove(livroAux);
+        Reserva reservaAux = getReserva(id);
+        if (reservaAux != null) {
+            reservas.remove(reservaAux);
 
         }
     }
 }
 
-}

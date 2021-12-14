@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -61,23 +62,23 @@ public class ListaReservaAdaptador extends BaseAdapter {
 
 
     private class ViewHolderLista {
-        private TextView tvPessoas, tvAndar;
+        private EditText etPessoas, etAndar;
         private CheckBox cbsuite , cbmini_bar;
 
         public ViewHolderLista(View view) {
-            tvPessoas=view.findViewById(R.id.etPessoas);
-            tvAndar=view.findViewById(R.id.etAndar);
+            etPessoas=view.findViewById(R.id.etPessoas);
+            etAndar=view.findViewById(R.id.etAndar);
             cbmini_bar=view.findViewById(R.id.cb_Mini_bar);
             cbsuite=view.findViewById(R.id.cb_Suite);
 
         }
 
         public void update(Reserva reserva) {
-            tvPessoas.setText(reserva.getTitulo());
-            tvSerie.setText(livro.getSerie());
-            tvAutor.setText(livro.getAutor());
-            tvAno.setText(livro.getAno()+"");
-            imgCapa.setImageResource(livro.getCapa());
+            etPessoas.setText(reserva.getPessoas());
+            etAndar.setText(reserva.getAndar());
+            cbsuite.equals((reserva.getSuite()));
+            cbmini_bar.equals((reserva.getMini_Bar()));
+            
         }
     }
 
