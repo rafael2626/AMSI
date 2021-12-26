@@ -19,7 +19,7 @@ import modelos.SingletonGestorReservas;
 
 public class ReservasFragment extends Fragment {
     private EditText etPessoas, etAndar;
-    private CheckBox cbSuite , cbMini_Bar;
+    private CheckBox cbSuite , cbMiniBar;
 
     public ReservasFragment() {
 
@@ -31,8 +31,8 @@ public class ReservasFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_reservas, container, false);
         etPessoas =view.findViewById(R.id.etPessoas);
         etAndar = view.findViewById(R.id.etAndar);
-        cbMini_Bar = view.findViewById(R.id.cb_Mini_bar);
-        cbSuite = view.findViewById(R.id.cb_Suite);
+        cbMiniBar = view.findViewById(R.id.cbMinibar);
+        cbSuite = view.findViewById(R.id.cbSuite);
 
         carregarLivro();
         return view;
@@ -44,7 +44,7 @@ public class ReservasFragment extends Fragment {
             Reserva r = reservas.get(0);
             etPessoas.setText(r.getPessoas());
             etAndar.setText(r.getAndar());
-            cbMini_Bar.setText(r.getMini_Bar());
+            cbMiniBar.setText(r.get());
 
         }
     }

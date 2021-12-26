@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/ItemRemover"
-        android:icon="@drawable/ic_action_remove_foreground"
+        android:icon="@drawable/ic_action_search_foreground"
 
         android:title="@string/menuserach"
         app:actionViewClass="android.widget.SearchView"

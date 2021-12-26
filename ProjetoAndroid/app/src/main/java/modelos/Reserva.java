@@ -3,15 +3,15 @@ package modelos;
 public class Reserva {
 
     private int id , andar , pessoas;
-    private  boolean mini_bar , suite;
+    private  boolean minibar , suite;
 
 
-    public Reserva(int id, int andar, int pessoas, boolean mini_bar, boolean suite) {
+    public Reserva(int id, int andar, int pessoas, boolean minibar, boolean suite) {
 
         this.id = id;
         this.andar = andar;
         this.pessoas = pessoas;
-        this.mini_bar = mini_bar;
+        this.minibar = minibar;
         this.suite = suite;
 
     }
@@ -28,11 +28,11 @@ public class Reserva {
 
 
     public boolean getMini_Bar() {
-        return  mini_bar;
+        return  minibar;
     }
 
     public void setMini_bar(Boolean mini_bar) {
-        this.mini_bar = mini_bar;
+        this.minibar = mini_bar;
     }
 
 

@@ -140,11 +140,11 @@ public class SingletonGestorReservas
                     Map<String, String> params = new HashMap<>();
 
                     params.put("token", TOKEN);
-                    params.put("NºPessoas", r.getPessoas()+ "");
-                    params.put("Andar", r.getAndar()+ "");
+                    params.put("pessoas", r.getPessoas()+ "");
+                    params.put("andar", r.getAndar()+ "");
                     params.put("minibar", r.getMini_Bar()+ true);
-                    params.put("ano", l.getAno() + "");
-                    params.put("capa", ());
+                    params.put("suite", r.getSuite() + "");
+
 
                     return params;
                 }
@@ -178,11 +178,10 @@ public class SingletonGestorReservas
                     Map<String, String> params = new HashMap<>();
 
                     params.put("token", TOKEN);
-                    params.put("titulo", l.getTitulo());
-                    params.put("serie", l.getSerie());
-                    params.put("autor", l.getAutor());
-                    params.put("ano", l.getAno() + "");
-                    params.put("capa", l.getCapa());
+                    params.put("pessoas", r.getPessoas()+ "");
+                    params.put("andar", r.getAndar()+ "");
+                    params.put("minibar", r.getMini_Bar()+ true);
+
 
                     return params;
                 }

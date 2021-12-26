@@ -17,10 +17,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.projeto.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import Listeners.ReservaListener;
 import modelos.Reserva;
 import modelos.SingletonGestorReservas;
 
-public class DetalhesReservaActivity extends AppCompatActivity  {
+public class DetalhesReservaActivity extends AppCompatActivity implements ReservaListener {
 
     public static final int ADD = 10, EDIT = 20, REMOVE = 30;
     public static final String DEFAULT_IMG_URL = "http://amsi.dei.estg.ipleiria.pt/img/ipl_semfundo.png";
@@ -32,14 +33,14 @@ public class DetalhesReservaActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalhes_livro);
+        setContentView(R.layout.activity_detalhes_reserva);
 
         fabSave = findViewById(R.id.fabSave);
 
         etAndar = findViewById(R.id.etAndar);
         etPessoa = findViewById(R.id.etPessoas);
-        cbminibar = findViewById(R.id.cb_Mini_bar);
-        cbsuite = findViewById(R.id.cb_Suite);
+        cbminibar = findViewById(R.id.cbMinibar);
+        cbsuite = findViewById(R.id.cbSuite);
 
 
         int id = getIntent().getIntExtra("ID_LIVRO", 0);
@@ -51,7 +52,7 @@ public class DetalhesReservaActivity extends AppCompatActivity  {
         if (reserva != null) { ;
             etPessoa.setText(reserva.getPessoas()+ "");
             etAndar.setText(reserva.getAndar()+ "");
-            cbsuite.equals(reserva.getSuite());
+            cbsuite.setText(reserva.getSuite());
             cbminibar.equals(reserva.getMini_Bar());
 
             //imgCapa.setImageResource(livro.getCapa());

@@ -29,7 +29,7 @@ import modelos.SingletonGestorReservas;
 
 
 public class ListaReservasFragment extends Fragment {
-    private ListView lvlistaReservas;
+    private ListView lvListaReservas;
     private ArrayList<Reserva> listaReservas;
     private FloatingActionButton fabadd;
     private SearchView searchView;
@@ -43,11 +43,11 @@ public class ListaReservasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_reservas, container, false);
       setHasOptionsMenu(true);
-        listaReservas = SingletonGestorReservas.getInstance(getContext()).getLivrosBD();
-        lvlistaReservas = view.findViewById(R.id.lvlistaReservas);
-        lvlistaReservas.setAdapter((new ListaReservaAdaptador(getContext(), listaReservas)));
+        listaReservas = SingletonGestorReservas.getInstance(getContext()).getReservasBD();
+        lvListaReservas = view.findViewById(R.id.lvListaLivros);
+        lvListaReservas.setAdapter((new ListaReservaAdaptador(getContext(), listaReservas)));
 
-        lvlistaReservas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lvListaReservas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Intent intent = new Intent(getContext(), DetalhesReservaActivity.class);
@@ -57,7 +57,7 @@ public class ListaReservasFragment extends Fragment {
 
             }
         });
-        fabadd = view.findViewById(R.id.fabadd);
+        fabadd = view.findViewById(R.id.fabAdd);
         fabadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,8 +75,8 @@ public class ListaReservasFragment extends Fragment {
         {
             if(requestCode == REQCODE_EDIT || requestCode == REQCODE_ADD)
             {
-                listaReservas = SingletonGestorReservas.getInstance(getContext()).getLivrosBD();
-                lvlistaReservas.setAdapter(new ListaReservaAdaptador(getContext(),listaReservas));
+                listaReservas = SingletonGestorReservas.getInstance(getContext()).getReservasBD();
+                lvListaReservas.setAdapter(new ListaReservaAdaptador(getContext(),listaReservas));
 
                 switch  (data.getIntExtra("OPERACAO", 0))
                 {
@@ -86,7 +86,7 @@ public class ListaReservasFragment extends Fragment {
                     case DetalhesReservaActivity.EDIT:
                         Toast.makeText(getContext(),"Livro editado com sucesso",Toast.LENGTH_LONG);
                         break;
-                    case DetalhesReservaActivity.DEL:
+                    case DetalhesReservaActivity.REMOVE:
                         Toast.makeText(getContext(),"Livro eliminado com sucesso",Toast.LENGTH_LONG);
                         break;
                 }
@@ -97,7 +97,7 @@ public class ListaReservasFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_pesquisa, menu);
-        MenuItem itemPesquisa = menu.findItem(R.id.ItemPesquisa);
+        MenuItem itemPesquisa = menu.findItem(R.id.ItemRemover);
         searchView = (SearchView) itemPesquisa.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -112,7 +112,7 @@ public class ListaReservasFragment extends Fragment {
                 for(Reserva r: listaReservas)
                     if(r.getTitulo().toLowerCase().contains(s.toLowerCase()))
                         tempLista.add(l);
-                lvlistaReservas.setAdapter(new ListaReservaAdaptador(getContext(),tempLista));
+                lvListaReservas.setAdapter(new ListaReservaAdaptador(getContext(),tempLista));
                 return true;
             }
         });

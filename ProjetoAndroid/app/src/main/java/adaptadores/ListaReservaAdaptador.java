@@ -66,8 +66,8 @@ public class ListaReservaAdaptador extends BaseAdapter {
         public ViewHolderLista(View view) {
             etPessoas=view.findViewById(R.id.etPessoas);
             etAndar=view.findViewById(R.id.etAndar);
-            cbmini_bar=view.findViewById(R.id.cb_Mini_bar);
-            cbsuite=view.findViewById(R.id.cb_Suite);
+            cbmini_bar=view.findViewById(R.id.cbMinibar);
+            cbsuite=view.findViewById(R.id.cbSuite);
 
         }
 
